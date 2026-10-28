@@ -1,0 +1,206 @@
+[
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 1\nDeep Learning: A Practical Introduction\n A concise, practical guide to neural networks, training, evaluation, and deployment\n A beginner-friendly, text-first guide designed for reliable PDF text extraction with\n PyPDFLoader.\nHow to use this guide\nThis guide introduces the core ideas of deep learning, explains the main neural-network components, and walks\nthrough common architectures and a practical workflow. Each page focuses on one topic. Headings are explicit,\nparagraphs are short, and code examples use plain text so retrieval systems can split and index the material\ncleanly.\nLearning objectives: explain what deep learning is; describe how a neural network learns; distinguish common",
+    "source": "deep_lr.pdf",
+    "page": 1,
+    "start_index": 0
+  },
+  {
+    "text": "cleanly.\nLearning objectives: explain what deep learning is; describe how a neural network learns; distinguish common\narchitectures; understand training, evaluation, and overfitting; and identify practical steps for building a model.\nA note on terminology\nArtificial intelligence (AI) is the broad field of building systems that perform tasks associated with intelligence.\nMachine learning (ML) is a part of AI in which systems learn patterns from data. Deep learning is a part of ML that\nuses neural networks with multiple layers to learn useful representations.",
+    "source": "deep_lr.pdf",
+    "page": 1,
+    "start_index": 623
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 2\n1. What Is Deep Learning?\nDeep learning is a machine-learning approach based on neural networks containing multiple processing layers.\nThese layers transform raw input into progressively more useful representations. For example, a vision model\nmay learn to detect edges, then textures and shapes, and finally objects.\nTraditional machine-learning workflows often depend on manually designed features. Deep-learning systems can\nlearn many features directly from examples, although data preparation, domain knowledge, and careful\nevaluation remain important.\nWhy is it called deep?\nThe word deep refers to the number of successive transformations in the network. A shallow network may contain",
+    "source": "deep_lr.pdf",
+    "page": 2,
+    "start_index": 0
+  },
+  {
+    "text": "Why is it called deep?\nThe word deep refers to the number of successive transformations in the network. A shallow network may contain\nonly one hidden layer; a deep network can contain many. More layers can represent complex relationships, but\ndepth alone does not guarantee better performance.\nWhere is it used?\nApplications include image classification, speech recognition, language translation, document understanding,\nrecommendation, medical-image analysis, robotics, forecasting, and generative systems. The right approach\ndepends on the task, available data, latency, cost, and safety requirements.\nKey takeaway\nDeep learning is powerful when a model can learn useful representations from enough relevant examples. It is\nnot automatically the best choice for every problem.",
+    "source": "deep_lr.pdf",
+    "page": 2,
+    "start_index": 604
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 3\n2. Neurons, Layers, and Parameters\nA neural network is made of connected computational units often called neurons. A neuron combines input\nvalues using weights, adds a bias, and applies an activation function.\nA single neuron\nFor inputs x1 through xn, weights w1 through wn, and bias b, the pre-activation value is z = w1*x1 + w2*x2 + ... +\nwn*xn + b. The output is a = f(z), where f is an activation function.\nWeights control the influence of inputs. Bias allows the neuron to shift its response. During training, the model\nadjusts these parameters to reduce prediction error.\nNetwork layers\nThe input layer receives the features. Hidden layers perform intermediate transformations. The output layer",
+    "source": "deep_lr.pdf",
+    "page": 3,
+    "start_index": 0
+  },
+  {
+    "text": "Network layers\nThe input layer receives the features. Hidden layers perform intermediate transformations. The output layer\nproduces a prediction, such as class probabilities or a numeric estimate.\nParameters versus hyperparameters\nParameters are learned from data, including weights and biases. Hyperparameters are choices made by the\npractitioner, such as learning rate, batch size, number of layers, hidden-layer width, and training epochs.\nWhy multiple layers help\nComposing simple transformations can express complicated functions. However, larger networks also require\nmore computation and may overfit when data or regularization is insufficient.",
+    "source": "deep_lr.pdf",
+    "page": 3,
+    "start_index": 625
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 4\n3. Activation Functions\nAn activation function introduces nonlinearity. Without nonlinear activations, a stack of ordinary linear layers is\nequivalent to a single linear transformation and cannot model many complex relationships.\nReLU\nReLU(x) = max(0, x). It is computationally simple and commonly used in hidden layers. Negative inputs produce\nzero; positive inputs pass through unchanged.\nSigmoid\nThe sigmoid function maps real-valued inputs to values between zero and one. It is often useful for the output of a\nbinary classifier when interpreted as a probability. Saturation at very large positive or negative inputs can produce\nsmall gradients.\nTanh",
+    "source": "deep_lr.pdf",
+    "page": 4,
+    "start_index": 0
+  },
+  {
+    "text": "binary classifier when interpreted as a probability. Saturation at very large positive or negative inputs can produce\nsmall gradients.\nTanh\nTanh maps values into the interval from -1 to 1. It is zero-centered, but can also saturate for large-magnitude\ninputs.\nSoftmax\nSoftmax converts a vector of scores into a distribution of positive values that sum to one. It is commonly used for\nmutually exclusive multi-class classification.\nPractical guidance\nReLU or a related activation is a common default for hidden layers. The output activation should match the task\nand loss function. For example, multi-label classification often uses independent sigmoid outputs rather than one\nsoftmax distribution.",
+    "source": "deep_lr.pdf",
+    "page": 4,
+    "start_index": 562
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 5\n4. How Neural Networks Learn\nTraining is an iterative process. The model makes predictions, a loss function measures error, gradients estimate\nhow parameters affect that error, and an optimizer updates the parameters.\nForward pass\nInput data flows through the network to produce predictions. Each layer applies its learned transformation and\nactivation function.\nLoss function\nThe loss measures disagreement between predictions and target values. Mean squared error is common for\nregression. Cross-entropy losses are common for classification. The loss should match the problem and label\nformat.\nBackpropagation\nBackpropagation applies the chain rule of calculus to compute gradients of the loss with respect to parameters.",
+    "source": "deep_lr.pdf",
+    "page": 5,
+    "start_index": 0
+  },
+  {
+    "text": "format.\nBackpropagation\nBackpropagation applies the chain rule of calculus to compute gradients of the loss with respect to parameters.\nThese gradients indicate how a small parameter change would affect the loss.\nGradient descent\nA basic gradient-descent update is parameter_new = parameter_old - learning_rate * gradient. The learning rate\ncontrols the size of each update. If it is too large, training may become unstable; if too small, learning may be\nslow.\nEpochs and batches\nAn epoch is one pass through the training dataset. A batch is a subset processed together. Mini-batch training is\ncommon because it balances computational efficiency with frequent parameter updates.\nTraining loop summary",
+    "source": "deep_lr.pdf",
+    "page": 5,
+    "start_index": 635
+  },
+  {
+    "text": "common because it balances computational efficiency with frequent parameter updates.\nTraining loop summary\nLoad a batch, run the forward pass, calculate loss, clear old gradients, backpropagate, update parameters, and\nrepeat. Evaluate on validation data regularly.",
+    "source": "deep_lr.pdf",
+    "page": 5,
+    "start_index": 1229
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 6\n5. Common Deep-Learning Architectures\nFeedforward neural networks\nFeedforward networks pass information from input toward output without recurrent connections. They are useful\nfor tabular data, baseline models, and general function approximation.\nConvolutional neural networks\nCNNs use convolutional filters to detect local patterns and share parameters across positions. They are widely\nused for images and other grid-like data. Pooling or strided operations can reduce spatial dimensions.\nRecurrent neural networks\nRNNs process sequences while maintaining a hidden state. They were widely used for text, speech, and\ntime-series tasks. Standard RNNs can struggle with long-range dependencies; LSTM and GRU designs help\naddress some of these issues.",
+    "source": "deep_lr.pdf",
+    "page": 6,
+    "start_index": 0
+  },
+  {
+    "text": "time-series tasks. Standard RNNs can struggle with long-range dependencies; LSTM and GRU designs help\naddress some of these issues.\nTransformers\nTransformers use attention mechanisms to let elements in a sequence exchange information. They are central to\nmany modern language, vision, audio, and multimodal systems. Self-attention can model relationships between\ndistant tokens, though computation and memory can grow with sequence length.\nAutoencoders\nAn autoencoder learns to encode input into a compact representation and then reconstruct it. Uses include\nrepresentation learning, compression, denoising, and anomaly detection.\nGenerative adversarial networks\nA GAN trains a generator to create samples and a discriminator to distinguish generated samples from real",
+    "source": "deep_lr.pdf",
+    "page": 6,
+    "start_index": 665
+  },
+  {
+    "text": "Generative adversarial networks\nA GAN trains a generator to create samples and a discriminator to distinguish generated samples from real\nexamples. GANs can produce realistic outputs but may be difficult to train and evaluate.\nChoosing an architecture\nStart with the simplest architecture that is credible for the data type. Compare against a baseline and select using\nvalidation performance, resource limits, and the needs of the application.",
+    "source": "deep_lr.pdf",
+    "page": 6,
+    "start_index": 1296
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 7\n6. Data Preparation and Splitting\nA model learns from examples, so data quality strongly affects its behavior. Check for missing values, duplicate\nrecords, incorrect labels, inconsistent formats, class imbalance, and data leakage.\nTraining, validation, and test sets\nThe training set is used to fit model parameters. The validation set supports choices such as architecture,\nhyperparameters, and decision thresholds. The test set is held back for a final, less biased estimate of\nperformance.\nDo not repeatedly tune a model against the test set. Doing so leaks information from the test set into model\ndecisions and can make final performance appear better than it truly is.\nPreprocessing",
+    "source": "deep_lr.pdf",
+    "page": 7,
+    "start_index": 0
+  },
+  {
+    "text": "decisions and can make final performance appear better than it truly is.\nPreprocessing\nImages may be resized and normalized. Text may be tokenized. Numeric features may need scaling. Fit\npreprocessing transformations only on the training split, then apply the learned transformations to validation and\ntest data.\nImbalanced datasets\nWhen one class is rare, accuracy can be misleading. A model that always predicts the majority class may score\nhighly while missing nearly every positive case. Consider stratified splitting, class weighting, careful resampling,\nand metrics such as precision, recall, F1, and PR-AUC.\nData leakage\nLeakage occurs when training uses information that would not legitimately be available at prediction time.",
+    "source": "deep_lr.pdf",
+    "page": 7,
+    "start_index": 649
+  },
+  {
+    "text": "Data leakage\nLeakage occurs when training uses information that would not legitimately be available at prediction time.\nExamples include using future information in forecasting or allowing near-duplicate examples to cross data splits.\nGood practice\nDocument the source of the data, the split method, preprocessing steps, label definitions, and known limitations.\nKeep a reproducible record of random seeds and dataset versions.",
+    "source": "deep_lr.pdf",
+    "page": 7,
+    "start_index": 1264
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 8\n7. Losses, Metrics, and Evaluation\nRegression metrics\nMean absolute error (MAE) averages the absolute differences between predictions and targets. Mean squared\nerror (MSE) squares the errors before averaging, so large errors receive greater weight. Root mean squared\nerror (RMSE) is the square root of MSE and uses the target's units.\nClassification metrics\nAccuracy is the fraction of predictions that are correct. Precision is the fraction of predicted positives that are truly\npositive. Recall is the fraction of actual positives that are found. F1 is the harmonic mean of precision and recall.\nPrecision = TP / (TP + FP). Recall = TP / (TP + FN). F1 = 2 * Precision * Recall / (Precision + Recall). TP means",
+    "source": "deep_lr.pdf",
+    "page": 8,
+    "start_index": 0
+  },
+  {
+    "text": "Precision = TP / (TP + FP). Recall = TP / (TP + FN). F1 = 2 * Precision * Recall / (Precision + Recall). TP means\ntrue positive, FP false positive, and FN false negative.\nThresholds\nA classifier may output a probability-like score. A threshold converts that score into a class decision. A lower\nthreshold often increases recall and false positives; a higher threshold often increases precision while missing\nmore positives. Select thresholds using validation data and the costs of mistakes.\nMulti-class and multi-label tasks\nIn multi-class classification, each example belongs to one of several classes. In multi-label classification, an\nexample can have several labels at once. Metrics should reflect the task and whether each label matters equally.\nEvaluation beyond a score",
+    "source": "deep_lr.pdf",
+    "page": 8,
+    "start_index": 645
+  },
+  {
+    "text": "example can have several labels at once. Metrics should reflect the task and whether each label matters equally.\nEvaluation beyond a score\nInspect confusion matrices, errors by subgroup, calibration, latency, memory use, and robustness to realistic\ninput changes. A single metric rarely captures all deployment requirements.",
+    "source": "deep_lr.pdf",
+    "page": 8,
+    "start_index": 1283
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 9\n8. Overfitting and Regularization\nOverfitting happens when a model learns training-specific details that do not generalize. It often appears as\nexcellent training performance and substantially worse validation performance. Underfitting occurs when the\nmodel cannot capture the useful structure in the data.\nCommon remedies\nMore representative training data can improve generalization. Data augmentation creates realistic variations of\ntraining examples. Weight decay discourages excessively large weights. Dropout randomly disables some\nactivations during training. Early stopping halts training when validation performance stops improving.\nModel capacity",
+    "source": "deep_lr.pdf",
+    "page": 9,
+    "start_index": 0
+  },
+  {
+    "text": "activations during training. Early stopping halts training when validation performance stops improving.\nModel capacity\nA larger network can fit more complex patterns but may need more data, computation, and regularization. A\nsmaller model can be faster, cheaper, and easier to deploy.\nLearning curves\nPlot training and validation loss over epochs. If training loss keeps falling while validation loss rises, overfitting is\nlikely. If both remain high, the model may be underfitting, the learning rate may be unsuitable, or the data pipeline\nmay contain a problem.\nReproducibility\nRecord model configuration, software versions, data versions, random seeds, training duration, and evaluation",
+    "source": "deep_lr.pdf",
+    "page": 9,
+    "start_index": 584
+  },
+  {
+    "text": "may contain a problem.\nReproducibility\nRecord model configuration, software versions, data versions, random seeds, training duration, and evaluation\nresults. Random seeds improve repeatability but do not guarantee identical results across hardware or software\nenvironments.\nA practical rule\nDo not assume that a more complicated model is better. Use validation evidence to decide whether complexity\nproduces a meaningful improvement.",
+    "source": "deep_lr.pdf",
+    "page": 9,
+    "start_index": 1125
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 10\n9. Transfer Learning and Fine-Tuning\nTransfer learning starts with a model that has already learned from a large dataset and adapts it to a new task.\nThe pretrained model can provide useful general representations, reducing the amount of task-specific data and\ntraining time required.\nFeature extraction\nFreeze most or all pretrained layers and train a new task-specific output head. This is often a good first\nexperiment when data or compute is limited.\nFine-tuning\nUnfreeze some or all pretrained layers and continue training on the target dataset. Use a conservative learning\nrate because large updates can damage useful pretrained representations. Fine-tuning can improve task fit but\nincreases compute needs and overfitting risk.\nText example",
+    "source": "deep_lr.pdf",
+    "page": 10,
+    "start_index": 0
+  },
+  {
+    "text": "increases compute needs and overfitting risk.\nText example\nA pretrained language model can be adapted for sentiment classification, toxicity detection, topic classification, or\nquestion answering. The text must be tokenized in the format expected by the model. Label design, data quality,\nand evaluation remain essential.\nImage example\nA model pretrained on a large image dataset can be adapted to recognize plant diseases or product categories.\nThe final layer is typically changed to match the target classes.\nResponsible use\nPretrained models can inherit biases, privacy risks, and weaknesses from their original data and training. Test\nthem on representative examples and disclose important limitations.",
+    "source": "deep_lr.pdf",
+    "page": 10,
+    "start_index": 737
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 11\n10. Practical Workflow with PyTorch\nPyTorch is a popular Python framework for building and training neural networks. A typical workflow includes\npreparing tensors or datasets, defining a model, choosing a loss and optimizer, training, evaluating, and saving\nthe resulting artifact.\nIllustrative training skeleton\n for epoch in range(num_epochs):\\n model.train()\\n for inputs, targets in train_loader:\\n\noptimizer.zero_grad()\\n predictions = model(inputs)\\n loss = loss_fn(predictions, targets)\\n\nloss.backward()\\n optimizer.step()\\n\\n model.eval()\\n # Evaluate on validation data without\nupdating parameters.\nThis is a structural example rather than a complete runnable program. The model, loss function, tensor shapes,",
+    "source": "deep_lr.pdf",
+    "page": 11,
+    "start_index": 0
+  },
+  {
+    "text": "updating parameters.\nThis is a structural example rather than a complete runnable program. The model, loss function, tensor shapes,\ndevice placement, and data loader must be configured for the particular task.\nImportant details\nCall model.train() during training and model.eval() during evaluation. For evaluation, use torch.no_grad() or an\nappropriate inference context to avoid storing gradients. Move the model and batches to the same device.\nConfirm that output dimensions match the loss function's expected format.\nSaving and loading\nSave model parameters and the configuration needed to reconstruct the model. Keep tokenizer or preprocessing\nartifacts when applicable. Loading a model safely requires using trusted files and understanding the format being\nloaded.\nDebugging checklist",
+    "source": "deep_lr.pdf",
+    "page": 11,
+    "start_index": 636
+  },
+  {
+    "text": "artifacts when applicable. Loading a model safely requires using trusted files and understanding the format being\nloaded.\nDebugging checklist\nStart with a tiny batch and verify tensor shapes. Check that loss is finite and decreases on a small sample.\nConfirm labels and class ordering. Compare predictions with known examples. Only then scale up training.",
+    "source": "deep_lr.pdf",
+    "page": 11,
+    "start_index": 1284
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 12\n11. Deployment, Monitoring, and Responsible AI\nA trained model becomes useful when it can make predictions in a real workflow. Deployment may use a local\napplication, API, batch-processing job, mobile device, or cloud service.\nServing considerations\nMeasure latency, throughput, memory consumption, startup time, and cost. Use batching when it improves\nefficiency without violating response-time needs. Validate inputs and return clear errors for unsupported data.\nMonitoring\nProduction data can differ from training data. Monitor input distributions, prediction distributions, error rates,\nlatency, and available ground-truth performance. Data drift does not always mean model quality has fallen, but it\nis a signal to investigate.",
+    "source": "deep_lr.pdf",
+    "page": 12,
+    "start_index": 0
+  },
+  {
+    "text": "latency, and available ground-truth performance. Data drift does not always mean model quality has fallen, but it\nis a signal to investigate.\nPrivacy and security\nAvoid collecting unnecessary personal data. Restrict access to model endpoints and stored datasets. Consider\nwhether logs contain sensitive input. Treat external input as untrusted and defend against abuse, prompt injection\nwhere relevant, and resource-exhaustion attacks.\nFairness and limitations\nEvaluate whether errors are concentrated in particular groups or settings. A high average score can hide poor\nperformance on underrepresented examples. Human review may be appropriate when errors have serious\nconsequences.\nDocumentation",
+    "source": "deep_lr.pdf",
+    "page": 12,
+    "start_index": 639
+  },
+  {
+    "text": "performance on underrepresented examples. Human review may be appropriate when errors have serious\nconsequences.\nDocumentation\nRecord intended use, out-of-scope uses, training data summary, evaluation method, known weaknesses, and\nconditions that require human oversight. Make it possible for maintainers to reproduce and audit model behavior.",
+    "source": "deep_lr.pdf",
+    "page": 12,
+    "start_index": 1210
+  },
+  {
+    "text": "Deep Learning: A Practical Introduction\nPage 13\n12. Glossary and Learning Roadmap\nGlossary\nArtificial intelligence: the broad field of intelligent computer systems. Machine learning: methods that learn\npatterns from data. Deep learning: machine learning using neural networks with multiple layers. Tensor: a\nmulti-dimensional array used to represent data and parameters.\nForward pass: computing predictions from inputs. Loss: a measure of prediction error. Gradient: a derivative that\nindicates how a quantity changes with parameters. Backpropagation: an efficient way to calculate gradients.\nOptimizer: an algorithm that updates parameters.\nEpoch: one pass through training data. Batch: a group of examples processed together. Overfitting: learning",
+    "source": "deep_lr.pdf",
+    "page": 13,
+    "start_index": 0
+  },
+  {
+    "text": "Epoch: one pass through training data. Batch: a group of examples processed together. Overfitting: learning\npatterns that do not generalize. Regularization: techniques that improve generalization. Inference: using a trained\nmodel to make predictions.\nSuggested learning roadmap\nStep 1: Review Python, NumPy, basic linear algebra, derivatives, and probability. Step 2: Implement a small\nfeedforward network and understand the training loop. Step 3: Train an image classifier with a CNN. Step 4:\nFine-tune a pretrained text model. Step 5: compare models using a held-out test set and error analysis. Step 6:\npackage a model behind an API and document its limitations.\nPractice questions\n1. Why are nonlinear activation functions important? 2. What is the difference between parameters and",
+    "source": "deep_lr.pdf",
+    "page": 13,
+    "start_index": 642
+  },
+  {
+    "text": "Practice questions\n1. Why are nonlinear activation functions important? 2. What is the difference between parameters and\nhyperparameters? 3. Why should the test set remain untouched during model selection? 4. When can accuracy\nbe misleading? 5. How do transfer learning and fine-tuning differ? 6. What signs suggest overfitting? 7. Which\ndeployment metrics matter besides accuracy?\nFinal summary\nDeep learning combines layered representations with optimization. Strong results require more than selecting an\narchitecture: data quality, correct evaluation, regularization, reproducibility, deployment design, and responsible\nuse all matter. Begin with a baseline, test assumptions, inspect errors, and improve based on evidence.",
+    "source": "deep_lr.pdf",
+    "page": 13,
+    "start_index": 1308
+  }
+]

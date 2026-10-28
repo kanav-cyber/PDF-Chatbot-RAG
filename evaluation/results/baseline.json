@@ -1,0 +1,23 @@
+
+{
+  "project": "Smart_Q&A_rag",
+  "status": "previously_reported_baseline",
+  "evaluation_queries": 10,
+  "top_k": 5,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "results": {
+    "faiss_semantic_search": {
+      "precision_at_5": 0.36,
+      "recall_at_5": 0.90
+    },
+    "bm25": {
+      "precision_at_5": 0.20,
+      "recall_at_5": 0.50
+    }
+  },
+  "notes": [
+    "Historical results; rerun evaluation to verify.",
+    "Keep the same evaluation queries and relevance labels for comparisons.",
+    "Record retrieval latency separately."
+  ]
+}

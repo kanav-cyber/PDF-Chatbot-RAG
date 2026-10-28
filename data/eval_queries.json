@@ -1,0 +1,43 @@
+
+[
+  {
+    "question": "What is deep learning?",
+    "relevant_chunk_ids": [2, 3]
+  },
+  {
+    "question": "What is the difference between precision and recall?",
+    "relevant_chunk_ids": [17, 18]
+  },
+  {
+    "question": "What is the role of an activation function?",
+    "relevant_chunk_ids": [6, 7]
+  },
+  {
+    "question": "How does backpropagation work?",
+    "relevant_chunk_ids": [8, 9]
+  },
+  {
+    "question": "What is the difference between parameters and hyperparameters?",
+    "relevant_chunk_ids": [4, 5]
+  },
+  {
+    "question": "What is overfitting, and how can it be reduced?",
+    "relevant_chunk_ids": [20, 21]
+  },
+  {
+    "question": "What is transfer learning?",
+    "relevant_chunk_ids": [23, 24]
+  },
+  {
+    "question": "What is the difference between CNNs and RNNs?",
+    "relevant_chunk_ids": [11, 12]
+  },
+  {
+    "question": "What is data leakage?",
+    "relevant_chunk_ids": [15, 16]
+  },
+  {
+    "question": "What should be monitored when deploying a model?",
+    "relevant_chunk_ids": [28, 29]
+  }
+]
