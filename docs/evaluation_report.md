@@ -1,4 +1,4 @@
-# Smart_Q&A_rag — Evaluation Report
+# PDF-Rag Chatbot — Evaluation Report
 
 ## Project overview
 
